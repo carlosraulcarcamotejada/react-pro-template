@@ -1,18 +1,14 @@
 import { FC, JSX } from "react";
 import { Badge } from "@/components/ui";
-import { SidePanelRouteProps } from "@/data";
+import { RoutesProps } from "@/data";
 import { NavLink } from "react-router-dom";
 
-const SideNavOption: FC<SidePanelRouteProps> = ({
-  displayedRoute,
-  path,
-  badge,
-}): JSX.Element => {
+const SideNavOption: FC<RoutesProps> = ({ name, path, badge }): JSX.Element => {
   return (
     <NavLink
       to={path}
       className={({ isActive }) => `
-        ${isActive ? "bg-gray-100": ""}
+        ${isActive ? "bg-gray-100" : ""}
         flex 
         items-center 
         p-2 text-gray-900
@@ -25,7 +21,7 @@ const SideNavOption: FC<SidePanelRouteProps> = ({
         duration-150
         `}
     >
-      <span className="flex-1 ms-3 whitespace-nowrap">{displayedRoute}</span>
+      <span className="flex-1 ms-3 whitespace-nowrap">{name}</span>
       {badge && (
         <Badge variant={badge?.variant ?? "default"}>{badge.label}</Badge>
       )}

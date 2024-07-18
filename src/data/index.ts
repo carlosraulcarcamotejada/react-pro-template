@@ -1,1 +1,1 @@
-export * from "./sidePanelRoutes"
+export * from "./routes"

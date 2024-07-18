@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui";
 import { Menu } from "lucide-react";
-import { sidePanelRoutes } from "@/data";
+import { routes } from "@/data";
 import { SideNavOption } from ".";
 
 const NavigationModalMenu: FC = (): JSX.Element => {
@@ -37,11 +37,11 @@ const NavigationModalMenu: FC = (): JSX.Element => {
         </SheetHeader>
         <div className="grid gap-4 py-4">
           <ul className="space-y-2 font-medium">
-            {sidePanelRoutes?.map((sideBarOption) => (
-              <Fragment key={sideBarOption.id}>
-                {sideBarOption?.displayedRoute && (
+            {routes?.map((route) => (
+              <Fragment key={route.id}>
+                {route?.name && (
                   <li>
-                    <SideNavOption {...sideBarOption} />
+                    <SideNavOption {...route} />
                   </li>
                 )}
               </Fragment>

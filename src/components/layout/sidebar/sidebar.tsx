@@ -1,7 +1,7 @@
 import { FC, Fragment, JSX } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { ReactLogo } from "@/components/svg";
-import { sidePanelRoutes } from "@/data";
+import { routes } from "@/data";
 import {
   AvatarModalMenu,
   NavigationModalMenu,
@@ -39,11 +39,11 @@ const Sidebar: FC = (): JSX.Element => {
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
           <ul className="space-y-2 font-medium">
-            {sidePanelRoutes?.map((sideBarOption) => (
-              <Fragment key={sideBarOption.id}>
-                {sideBarOption?.displayedRoute && (
+            {routes?.map((route) => (
+              <Fragment key={route.id}>
+                {route?.name && (
                   <li>
-                    <SideNavOption {...sideBarOption} />
+                    <SideNavOption {...route} />
                   </li>
                 )}
               </Fragment>

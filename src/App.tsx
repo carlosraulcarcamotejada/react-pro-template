@@ -1,11 +1,11 @@
 import { FC, JSX } from "react";
-import { Footer, Sidebar } from "@/components/commons";
+import { Sidebar } from "@/components/layout";
 
 const App: FC = (): JSX.Element => {
   return (
     <>
       <Sidebar />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

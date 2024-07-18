@@ -1,18 +1,16 @@
-import { FC, JSX } from "react";
+import { FC, JSX, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { sidePanelRoutes } from "@/data";
+import { routes } from "@/data";
 
 const Router: FC = (): JSX.Element => {
   return (
-    <Routes>
-      {sidePanelRoutes?.map((sideBarOption) => (
-        <Route
-          key={sideBarOption.id}
-          path={sideBarOption.path}
-          element={sideBarOption?.element ?? <div></div>}
-        />
-      ))}
-    </Routes>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Routes>
+        {routes?.map(({ id, path, element: Element }) => (
+          <Route key={id} path={path} element={<Element />} />
+        ))}
+      </Routes>
+    </Suspense>
   );
 };
 
